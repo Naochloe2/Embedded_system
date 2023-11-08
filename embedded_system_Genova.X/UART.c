@@ -4,10 +4,12 @@
  *
  * Created on 8 novembre 2023, 14:40
  */
-
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "xc.h"
 #include "UART.h"
+#include "mainXC16.h"
 
 void initUART() {
     U2BRG = 11; // (7372800 / 4) / (16*9600)?1

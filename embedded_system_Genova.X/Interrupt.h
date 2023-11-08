@@ -13,3 +13,5 @@
 void __attribute__((__interrupt__, __auto_psv__))_T2Interrupt();
 void __attribute__((__interrupt__, __auto_psv__))_T1Interrupt();
 void __attribute__((__interrupt__, __auto_psv__))_U2RXInterrupt();
+
+#endif	/* INTERRUPT_H */

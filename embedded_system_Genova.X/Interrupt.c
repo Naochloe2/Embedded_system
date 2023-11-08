@@ -4,7 +4,8 @@
  *
  * Created on 8 novembre 2023, 15:26
  */
-
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "xc.h"
 #include "Interrupt.h"
@@ -32,11 +33,8 @@ void __attribute__((__interrupt__, __auto_psv__))_T1Interrupt() {
     IEC0bits.T1IE = 0x00;
 }
 
-void __attribute__((__interrupt__, __auto_psv__))_U2RXInterrupt() {
-    if (uartBuffer.count < BUFFER_SIZE) {
-        uartBuffer.data[uartBuffer.tail] = U2RXREG;
-        uartBuffer.tail = (uartBuffer.tail + 1) % BUFFER_SIZE;
-        uartBuffer.count++;
-    }
-    IFS1bits.U2RXIF = 0; // flag interruption UART
+void __attribute__((__interrupt__, __auto_psv__)) _U2RXInterrupt() {
+    IFS1bits.U2RXIF = 0; // Flag d'interruption RX UART
+    char receivedData = U2RXREG;
+    addToBuffer(receivedData);
 }

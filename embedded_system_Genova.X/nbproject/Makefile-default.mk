@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=mainXC16.c SPI.c timer.c Interrupt.c UART.c
+SOURCEFILES_QUOTED_IF_SPACED=mainXC16.c SPI.c timer.c Interrupt.c UART.c Buffer.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mainXC16.o ${OBJECTDIR}/SPI.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/Interrupt.o ${OBJECTDIR}/UART.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/mainXC16.o.d ${OBJECTDIR}/SPI.o.d ${OBJECTDIR}/timer.o.d ${OBJECTDIR}/Interrupt.o.d ${OBJECTDIR}/UART.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mainXC16.o ${OBJECTDIR}/SPI.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/Interrupt.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/Buffer.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/mainXC16.o.d ${OBJECTDIR}/SPI.o.d ${OBJECTDIR}/timer.o.d ${OBJECTDIR}/Interrupt.o.d ${OBJECTDIR}/UART.o.d ${OBJECTDIR}/Buffer.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/mainXC16.o ${OBJECTDIR}/SPI.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/Interrupt.o ${OBJECTDIR}/UART.o
+OBJECTFILES=${OBJECTDIR}/mainXC16.o ${OBJECTDIR}/SPI.o ${OBJECTDIR}/timer.o ${OBJECTDIR}/Interrupt.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/Buffer.o
 
 # Source Files
-SOURCEFILES=mainXC16.c SPI.c timer.c Interrupt.c UART.c
+SOURCEFILES=mainXC16.c SPI.c timer.c Interrupt.c UART.c Buffer.c
 
 
 
@@ -119,6 +119,12 @@ ${OBJECTDIR}/UART.o: UART.c  .generated_files/flags/default/24dd8e89309069a0a05f
 	@${RM} ${OBJECTDIR}/UART.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  UART.c  -o ${OBJECTDIR}/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/UART.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
+${OBJECTDIR}/Buffer.o: Buffer.c  .generated_files/flags/default/ca319681cf6b012e177cd416a37ef9be9525035a .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Buffer.o.d 
+	@${RM} ${OBJECTDIR}/Buffer.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Buffer.c  -o ${OBJECTDIR}/Buffer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/Buffer.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
 else
 ${OBJECTDIR}/mainXC16.o: mainXC16.c  .generated_files/flags/default/edca626dff3faea9324b365d1f2d7bd4aab893ed .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
@@ -149,6 +155,12 @@ ${OBJECTDIR}/UART.o: UART.c  .generated_files/flags/default/2996eb7c7aa53b5067ed
 	@${RM} ${OBJECTDIR}/UART.o.d 
 	@${RM} ${OBJECTDIR}/UART.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  UART.c  -o ${OBJECTDIR}/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/UART.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/Buffer.o: Buffer.c  .generated_files/flags/default/87cb49370dac92c21a635a0d2daffb33dd315751 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Buffer.o.d 
+	@${RM} ${OBJECTDIR}/Buffer.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Buffer.c  -o ${OBJECTDIR}/Buffer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/Buffer.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 endif
 

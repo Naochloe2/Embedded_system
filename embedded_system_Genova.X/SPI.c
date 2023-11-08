@@ -4,6 +4,9 @@
  *
  * Created on 8 novembre 2023, 14:14
  */
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "xc.h"
 #include "SPI.h"
 

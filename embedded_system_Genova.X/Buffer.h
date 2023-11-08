@@ -13,3 +13,6 @@
 
 void CircularBufferReveive(char data);
 void CircularBufferTransmit();
+void initCircularBuffer();
+
+#endif	/* BUFFER_H */
