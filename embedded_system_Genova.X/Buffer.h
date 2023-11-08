@@ -10,9 +10,10 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-
+/*
 void CircularBufferReveive(char data);
-void CircularBufferTransmit();
+void CircularBufferTransmit();*/
 void initCircularBuffer();
+void addToBuffer(char data);
 
 #endif	/* BUFFER_H */

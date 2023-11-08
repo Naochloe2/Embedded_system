@@ -14,5 +14,6 @@
 
 void initSPI();
 void sendSPI(char data);
+void sendSPIbuff(char buffer[]);
 
 #endif	/* SPI_H */

@@ -5,7 +5,6 @@
  * Created on 24 octobre 2023, 11:44
  */
 
-
 #include "xc.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,29 +22,8 @@ int S5_flag = 0;
 int S6_flag = 0;
 int RX_flag = 0;
 
-
 void algorithm() {
     tmr_wait_ms(TIMER3, 7);
-}
-
-void sendSPIbuff(char buffer[]) {
-    while (SPI1STATbits.SPITBF == 1); // wait until not full
-    // SPI1BUF = 0x80; // position set to 1st row / 1st column
-    int j = 0;
-    while (buffer[j] != '\0') {
-        while (SPI1STATbits.SPITBF == 1); // wait until not full
-        sendSPI(buffer[j]);
-        j++;
-    }
-}
-
-void sendUARTbuff(char buffer[]) {
-    // CHECK THE BUFFER ISNT FULL - LIKE FOR SPI  <- TODO //////////////////////////////////////////////////////
-    int j = 0;
-    while (buffer[j] != '\0') {
-        U2TXREG = buffer[j];
-        j++;
-    }
 }
 
 void writingLCD(char cursor, char data) {

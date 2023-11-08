@@ -22,3 +22,14 @@ void sendSPI(char data) {
     while (SPI1STATbits.SPITBF == 1); // wait until not full
     SPI1BUF = data; // send the byte containing the value data
 }
+
+void sendSPIbuff(char buffer[]) {
+    while (SPI1STATbits.SPITBF == 1); // wait until not full
+    // SPI1BUF = 0x80; // position set to 1st row / 1st column
+    int j = 0;
+    while (buffer[j] != '\0') {
+        while (SPI1STATbits.SPITBF == 1); // wait until not full
+        sendSPI(buffer[j]);
+        j++;
+    }
+}

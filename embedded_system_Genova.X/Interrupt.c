@@ -9,6 +9,7 @@
 
 #include "xc.h"
 #include "Interrupt.h"
+#include "Buffer.h"
 
 void __attribute__((__interrupt__, __auto_psv__))_T2Interrupt() {
     IFS0bits.T2IF = 0; //reset the flag

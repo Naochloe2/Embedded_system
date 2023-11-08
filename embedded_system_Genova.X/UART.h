@@ -13,5 +13,6 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 void initUART();
+void sendUARTbuff(char buffer[]);
 
 #endif /* UART_H */
