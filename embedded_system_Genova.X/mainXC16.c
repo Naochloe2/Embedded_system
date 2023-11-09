@@ -71,9 +71,19 @@ int main() {
             }
             
             // We need to send DataChar by SPI to LCD instead of str
+            
+            IEC1bits.U2RXIE = 0x00; // desable UART interruption
             DataChar = uartBuffer.data[uartBuffer.head];
-            uartBuffer.head = (uartBuffer.head + 1) % BUFFER_SIZE;
+            uartBuffer.head = (uartBuffer.head + 1) % BUFFER_SIZE;  // DISABLE LES INTERRUPT A CET ENDROIT
+            uartBuffer.count--;
+            IEC1bits.U2RXIE = 0x01; // enable UART interruption
 
+            //if we finish the line
+            if ((counter_16 == 16) || (DataChar == '\n') || (DataChar == '\r')) {
+                counter_16 = 0;
+                clearLCD();
+            }
+            
             //send the character
             sendSPI((0x80 + counter_16));
             tmr_wait_ms(TIMER1, 1); // to be sure that the cursor is on the right spot
@@ -85,17 +95,8 @@ int main() {
             sendSPI(0xC0);
             sprintf(number_char, "Char Recv: %d", counter_char);
             sendSPIbuff(number_char);
-
-            //if we finish the line
-            if ((counter_16 == 17) || (DataChar == '\n') || (DataChar == '\r')) {
-                counter_16 = 0;
-                clearLCD();
-                sendSPI(DataChar);
-            }
-            IEC1bits.U2RXIE = 0x00; // able UART interruption
-            uartBuffer.count--;
-            IEC1bits.U2RXIE = 0x01; // enable UART interruption
         }
+
         // button S5 pressed
         if (PORTEbits.RE8 == 0) {
             tmr_setup_period(TIMER2, (20));
